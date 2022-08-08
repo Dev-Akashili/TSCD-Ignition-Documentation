@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TSCD/Ignition Documentation</title>
+    <link rel="shortcut icon" href="images/document.png" type="image/x-icon" />
+    <link rel="stylesheet" href="docs.css" />
+  </head>
+  <body>
+    <div id="head">
+      <h1>
+        Tissue Sample Collection Details (TSCD) Web Application Documentation
+      </h1>
+      <hr />
+    </div>
+    <div>
+      <h2>Table of content</h2>
+      <ol>
+        <li>
+          <a href="#Overview"><h5>Overview</h5></a>
+        </li>
+        <li>
+          <a href="#Reason"><h5>Reason For Choice of Tech Stack</h5></a>
+        </li>
+        <li>
+          <a href="#GTSCD"><h5>Getting Started (Client Side)</h5></a>
+        </li>
+        <li>
+          <a href="#GIGNITE"><h5>Getting Started Server Side (Ignition)</h5></a>
+        </li>
+        <li>
+          <a href="#TSCD"><h5>Client Side (TSCD) Application Breakdown</h5></a>
+        </li>
+        <li>
+          <a href="#IGNITE"
+            ><h5>Server side (Ignition) Application Breakdown</h5></a
+          >
+        </li>
+        <li>
+          <a href="#DEMO"><h5>Demo</h5></a>
+        </li>
+      </ol>
+    </div>
+    <div id="Overview">
+      <h2>Overview</h2>
+      <hr />
+      <p>
+        The Client side of this project was built with Typescript using the
+        React library. The Server side was built with NestJS, an express based
+        framework which also utilizes Typescript. A UI Component library was
+        built on the Chackra-UI library. PostgreSQL database was used for data
+        persistence on the backend, and Axios is used to make API calls to the
+        backend A REST API was built to handle all endpoints. Emphasis was
+        placed on scalability, reusability of UI components and easy
+        understanding of how the code works.
+      </p>
+    </div>
+    <div id="Reason">
+      <h2>Reason For Choice of Tech Stack</h2>
+      <hr />
+      <p>
+        <b>Typescript –</b> This was chosen over plain JavaScript because of its
+        static type checking nature. This helps to catch errors early as the
+        project grows in size.
+      </p>
+      <p>
+        <b>React –</b> This library was chosen because of the component based
+        model for the client side of the project.
+      </p>
+      <p>
+        <b>NestJS –</b> This library utilizes typescript and offers a structure
+        for building scalable server side applications.
+      </p>
+    </div>
+    <div id="GTSCD">
+      <h2>Getting Started (Client Side)</h2>
+      <hr />
+      <p>
+        Clone the TSCD repository from
+        <a href="https://github.com/Dev-Akashili/TSCD">Here</a> (Click Link)
+      </p>
+      <p><b>In the terminal:</b></p>
+      <p>
+        Run <b>`npm i`</b> or <b>`npm install`</b> or <b>`yarn install`</b> to
+        install all the dependencies for the project.
+      </p>
+      <p>
+        Run <b>`npm run start`</b> or <b>`npm start`</b> or
+        <b>`yarn start`</b> to initialize the project. Go to
+        <b>`https://localhost:3000`</b> to view in browser.
+      </p>
+      <p>
+        This web app was deployed with Vercel and is live at
+        <a href="https://tscd.vercel.app"><b>https://tscd.vercel.app</b></a>
+      </p>
+    </div>
+    <div id="GIGNITE">
+      <h2>Getting Started (Server Side – Ignition)</h2>
+      <hr />
+      <p>
+        Clone the TSCD-Ignition repository from
+        <a href="https://github.com/Dev-Akashili/TSCD-Ignition">Here</a> (Click
+        Link)
+      </p>
+      <p><b>In the terminal:</b></p>
+      <p>
+        Run <b>`npm i`</b> or <b>npm install`</b>` or <b>`yarn install`</b> to
+        install all the dependencies for the project.
+      </p>
+      <p>
+        Run <b>`npm run start:dev</b>` or <b>`npm start:dev`</b> or
+        <b>`yarn start:dev`</b> to initialize the project.
+      </p>
+      <p>
+        The endpoint is at<b>`https://localhost:5000`</b> to test in postman.
+      </p>
+      <p>
+        Note that this uses a PostgreSQL database for database persistence. You
+        can go through the official
+        <a href="https://docs.nestjs.com/techniques/database"
+          ><b>NestJS documention</b></a
+        >
+        (click link) to learn more about how to set up.
+      </p>
+      <p>
+        This sever app was deployed with Heroku and is live at
+        <a href="https://tscd-ignition.herokuapp.com"
+          ><b>https://tscd-ignition.herokuapp.com</b></a
+        >
+      </p>
+    </div>
+    <div id="TSCD">
+      <h2>CLIENT SIDE (TSCD) APPLICATION BREAKDOWN</h2>
+      <hr />
+      <p>
+        The Project is separated into multiple components folders. Each folder
+        contains corresponding relevant components, as well as an index.ts file
+        that exports all the individual components. This is for better structure
+        and to achieve modularity.
+      </p>
+      <ul>
+        <b>
+          <li>Components</li>
+          <li>Layouts</li>
+          <li>Pages</li>
+          <li>Types</li>
+        </b>
+      </ul>
+    </div>
+    <div>
+      <h2>Components Folder:</h2>
+      <hr />
+      <p>
+        The components folder is made up of subfolders holding individual
+        component variants, which can be reused to build out a page. It also
+        makes building faster and makes scaling easier. The list of subfolders
+        are as follows:
+      </p>
+      <ul>
+        <b>
+          <li>Alert</li>
+          <li>Button</li>
+          <li>Form</li>
+          <li>Heading</li>
+          <li>Icons</li>
+          <li>Modal</li>
+          <li>Spinner</li>
+          <li>Table</li>
+        </b>
+      </ul>
+    </div>
+    <div>
+      <h3>Alert</h3>
+      <p>
+        This folder contains components for building an Alert. Inspiration and
+        structure is derived from the Chackra-UI library. It has the following
+        components:
+      </p>
+      <ul>
+        <li>
+          <b>AlertComponent:</b> This displays a “success” or “error” alert when
+          a collection or sample is created.
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Button</h3>
+      <p>This folder contains components for building a Button. It contains:</p>
+      <ul>
+        <li>
+          <b>ButtonComponent:</b> This is a more general button component to
+          build custom button.
+        </li>
+        <li>
+          <b>CreateCollectionButton:</b> This is a custom button for creating a
+          collection.
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Form</h3>
+      <p>
+        This folder contains components for building a custom form. It contains:
+      </p>
+      <ul>
+        <li><b>FormInput:</b> A component to add custom input to a form.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Heading</h3>
+      <p>
+        This folder contains components for building custom page headings. It
+        contains:
+      </p>
+      <ul>
+        <li>
+          <b>Heading:</b> A heading component to build custom headings for a
+          page.
+        </li>
+        <li>
+          <b>CollectionHeading:</b> A custom heading component to create
+          headings for Collection Pages.
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Icons</h3>
+      <p>This folder contains custom Icon components. It contains:</p>
+      <ul>
+        <li>
+          <b>DeleteIcon:</b> An icon component that serves as a delete button.
+        </li>
+        <li>
+          <b>ViewIcon:</b> An icon component that serves as a button to view the
+          details of another component.
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Modal</h3>
+      <p>
+        This folder contains custom components for building a display modal. It
+        contains:
+      </p>
+      <ul>
+        <li>
+          <b>ModalComponent:</b> A custom component for building a modal.
+          Usually imported as “Modal” for naming convention.
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Spinner</h3>
+      <p>
+        This folder contains custom components for building a spinner to be
+        displayed while data is loading. It contains:
+      </p>
+      <ul>
+        <li>
+          <b>Spinner:</b> A custom spinner component that is used application
+          wide.
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Table</h3>
+      <p>
+        This folder contains custom components for building a table on a page.
+        It contains:
+      </p>
+      <ul>
+        <li>
+          <b>CollectionTableHead:</b> A custom component for building the table
+          head of a collection table.
+        </li>
+        <li>
+          <b>CollectionTableRow:</b> A custom component for building the table
+          row of a collection table.
+        </li>
+        <li>
+          <b>SampleTableHead:</b> A custom component for building the table head
+          of a sample table.
+        </li>
+        <li>
+          <b>SampleTableRow:</b> A custom component for building the table row
+          of a sample table.
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h2>Layouts Folder:</h2>
+      <hr />
+      <p>
+        The layouts folder is made up of subfolders holding individual
+        component, which can be reused to set a layout for another component
+        such as positioning, spacing of components e.t.c The list of subfolders
+        are as follows:
+      </p>
+      <ul>
+        <b>
+          <li>ButtonLayout</li>
+          <li>FormLayout</li>
+          <li>PageLayout</li>
+          <li>TableLayout</li>
+        </b>
+      </ul>
+    </div>
+    <div>
+      <h3>ButtonLayout</h3>
+      <p>
+        This folder contains a single custom component to set and edit the
+        layout of button components and an index.ts file that exports it.
+      </p>
+    </div>
+    <div>
+      <h3>FormLayout</h3>
+      <p>
+        This folder contains a single custom component to set and edit the
+        layout of form components and an index.ts file that exports it.
+      </p>
+    </div>
+    <div>
+      <h3>PageLayout</h3>
+      <p>
+        This folder contains a single custom component to set and edit the
+        layout of a page and an index.ts file that exports it.
+      </p>
+    </div>
+    <div>
+      <h3>TableLayout</h3>
+      <p>
+        This folder contains a single custom component to set and edit the
+        layout of table components and an index.ts file that exports it.
+      </p>
+    </div>
+    <div>
+      <h2>Pages Folder:</h2>
+      <hr />
+      <p>
+        The pages folder is made up of subfolders holding JSX(TSX) component
+        files that render the pages of the web application. It also holds the
+        logic for creation, deletion, routing e.t.c for the web applications.
+        The list of subfolders are as follows:
+      </p>
+    </div>
+    <div>
+      <h3>CollectionPage</h3>
+      <p>
+        This folder contains a single page component that displays an individual
+        collection and its samples on clicking its view button.
+      </p>
+    </div>
+    <div>
+      <h3>ErrorPage</h3>
+      <p>
+        This folder contains a single page component that displays a “PAGE NOT
+        FOUND” error when routed to a non existing page/component.
+      </p>
+    </div>
+    <div>
+      <h3>FormPages</h3>
+      <p>
+        This folder contains subfolders holding the form pages to create a
+        collection and/or a sample. Its constituent components also hold logic
+        for form validation, api calls with Axios, sending and managing data as
+        well as rendering results. It contains:
+      </p>
+      <ul>
+        <li>
+          <b>CreateCollectionFormPage:</b> A page component that renders a form
+          to collect input and create a collection.
+        </li>
+        <li>
+          <b>CreateSampleFormPage:</b> A page component that renders a form to
+          collect input, create a sample and assign it to its correct
+          collection.
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>HomePage</h3>
+      <p>
+        This folder contains a single page component that displays the home page
+        heading and imports(& renders) the collection table on the home page.
+      </p>
+    </div>
+    <div>
+      <h3>TablePage</h3>
+      <p>
+        This folder contains a single page component called HomeTablePage that
+        displays the collection table for the home page.
+      </p>
+    </div>
+    <div>
+      <h2>Types Folder:</h2>
+      <hr />
+      <p>
+        The types folder holds “.ts” files that contain strict types for samples
+        and collections. It contains:
+      </p>
+      <ul>
+        <li>
+          <b>CollectionType:</b> Exports an interface and type for collections
+        </li>
+        <li><b>SampleType:</b> Exports a type for samples.</li>
+      </ul>
+    </div>
+    <div>
+      <p>
+        <b>
+          ** The “index.tsx” file in the source folder mounts/renders the main
+          react component onto the “root” element (which is marked in the html).
+        </b>
+      </p>
+      <p>
+        <b>
+          ** The “App.jsx” file in the source folder renders the pages
+          components and adds routing for specific pages/components.
+        </b>
+      </p>
+    </div>
+    <div id="IGNITE">
+      <h2>SERVER SIDE (IGNITION) APPLICATION BREAKDOWN</h2>
+      <hr />
+      <p>
+        This server side application is divided into 2 modules which handles all
+        of its capabilities:
+      </p>
+      <ul>
+        <b>
+          <li>Collections module</li>
+          <li>Sample module</li>
+        </b>
+      </ul>
+    </div>
+    <div>
+      <h3>Collections Module:</h3>
+      <p>This folder contains:</p>
+      <ul>
+        <li>
+          <b>create-collection.dto.ts:</b> A data transfer object (DTO) that
+          defines how data will be sent to create a collection, within the “dto”
+          folder.
+        </li>
+        <li>
+          <b>collection.entitiy.ts:</b> A file that helps maintain the shape of
+          collection in the database in form of code that is easy to maintain,
+          within the “entity” folder.
+        </li>
+        <li>
+          <b>collections.controller.ts:</b> Responsible for handling all
+          incoming requests (GET, POST, DELETE) to the “/collections” endpoint
+          and returning responses to the client.
+        </li>
+        <li>
+          <b>collections.service.ts:</b> Main source of business logic when a
+          request is sent to the collections controller.
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Sample Module:</h3>
+      <p>This folder contains:</p>
+      <ul>
+        <li>
+          <b>create-sample.dto.ts:</b> A data transfer object (DTO) that defines
+          how data will be sent to create a sample, within the “dto” folder.
+        </li>
+        <li>
+          <b>sample.entitiy.ts:</b> A file that helps maintain the shape of
+          collection in the database in form of code that is easy to maintain,
+          within the “entity” folder.
+        </li>
+        <li>
+          <b>samples.controller.ts:</b> Responsible for handling all incoming
+          requests (GET, POST, DELETE) to the “/samples” endpoint and returning
+          responses to the client.
+        </li>
+        <li>
+          <b>samples.service.ts:</b> Main source of business logic when a
+          request is sent to the samples controller.
+        </li>
+      </ul>
+    </div>
+    <div>
+      <p>
+        <b>
+          app.module.ts: Contains the initialization of the application and
+          configuration for connection to the database.
+        </b>
+      </p>
+    </div>
+    <div id="DEMO">
+      <h2>DEMO</h2>
+      <hr />
+      <p>
+        This web application is currently deployed at
+        <a href="https://tscd.vercel.app/"><b>"https://tscd.vercel.app/"</b></a>
+        (click to view) using Vercel
+      </p>
+      <p>Here are screenshots of the UI (Mobile view included):</p>
+    </div>
+    <div class="img-div">
+      <h2>Home Page with list of all Collections</h2>
+      <img src="images/img1.png" class="img-lg" alt="..." />
+      <img src="images/mob1-1.PNG" class="img-sm" alt="..." />
+      <img src="images/mob1-2.PNG" class="img-sm" alt="..." />
+      <h2>Collection Page with the list of its Samples</h2>
+      <img src="images/img2.png" class="img-lg" alt="..." />
+      <img src="images/mob2-1.PNG" class="img-sm" alt="..." />
+      <img src="images/mob2-2.PNG" class="img-sm" alt="..." />
+      <h2>Create Collection Page with Success Alert</h2>
+      <img src="images/img3.png" class="img-lg" alt="..." />
+      <img src="images/mob3.PNG" class="img-sm" alt="..." />
+      <h2>Create Sample Page with Failed Alert</h2>
+      <img src="images/img4.png" class="img-lg" alt="..." />
+      <img src="images/mob4.PNG" class="img-sm" alt="..." />
+      <h2>Modal to delete a Sample</h2>
+      <img src="images/img5.png" class="img-lg" alt="..." />
+      <img src="images/mob5.PNG" class="img-sm" alt="..." />
+      <h2>Collection page with no samples</h2>
+      <img src="images/img6.png" class="img-lg" alt="..." />
+      <img src="images/mob6.PNG" class="img-sm" alt="..." />
+    </div>
+    <footer>
+      <p>Made by Emeka Akashili</p>
+    </footer>
+  </body>
+</html>
